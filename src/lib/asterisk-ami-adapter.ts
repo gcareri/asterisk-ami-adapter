@@ -262,6 +262,9 @@ export class AsteriskAmiAdapter extends EventEmitter {
 				}
 
 				this.emit("ami_data", event);
+				if (event.Event) {
+					this.emit(event.Event.toLowerCase(), event);
+				}
 			}
 			this.#debug("----- END DATA ----");
 		});
